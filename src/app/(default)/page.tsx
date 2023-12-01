@@ -1,4 +1,4 @@
-import { Header } from "@/app/(landing)/home/Header";
+import { Header } from "@/app/(default)/home/Header";
 
 export default function Home() {
   return (

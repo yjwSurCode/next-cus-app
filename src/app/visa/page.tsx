@@ -6,7 +6,7 @@ import { unstable_serialize as infinite_unstable_serialize } from 'swr/infinite'
 import { useEffect, useState } from 'react';
 import { Carousel, Col, Row, Statistic } from 'antd';
 import { Input } from '@nextui-org/react';
-import { Header } from '@/app/(landing)/home/Header';
+import { Header } from '@/app/(default)/home/Header';
 import Link from 'next/link';
 import { postData } from '@/utils/request';
 import Content from '@/app/visa/content';
@@ -182,11 +182,12 @@ export default function Dashboard() {
                         <div>
                             <Link
                                 href={{
-                                    pathname: '/visa/visa-shop-detail',
+                                    pathname: `/visa/visa-shop-detail`,
                                     query: { id: `${item.visa_type_id}` },
                                 }}
                             >
                                 {/* <div onClick={() => dispatch(addToCart([{ id: 123 }]))}  > {item.product_name}</div> */}
+                                <div> {item.product_name}</div>
                             </Link>
                         </div>
                     </div>

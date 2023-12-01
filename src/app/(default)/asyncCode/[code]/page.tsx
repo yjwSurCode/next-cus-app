@@ -24,18 +24,19 @@ const fetchAsyncCodePage = async (code: string) => {
     }
 };
 
-export const getStaticPaths = async () => {
-    return {
-        paths: [
-            {
-                params: {
-                    name: 'BoxyHQ',
-                },
-            }, // See the "paths" section below
-        ],
-        fallback: true, // false or "blocking"
-    };
-};
+//! TODO
+// export const getStaticPaths = async () => {
+//     return {
+//         paths: [
+//             {
+//                 params: {
+//                     name: 'BoxyHQ',
+//                 },
+//             }, // See the "paths" section below
+//         ],
+//         fallback: true, // false or "blocking"
+//     };
+// };
 
 export default async function Code(context: any) {
     const result = await fetchAsyncCodePage(context.code);

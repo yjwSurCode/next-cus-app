@@ -1,8 +1,7 @@
-'use client';
-import { notFound } from 'next/navigation';
-import Content from './content';
-import { usePathname, useSearchParams } from 'next/navigation';
-import { postData } from '@/utils/request';
+// import { notFound } from 'next/navigation';
+// import Content from './content';
+// import { usePathname, useSearchParams } from 'next/navigation';
+// import { postData } from '@/utils/request';
 
 // const fetchShopInfo = async (code: string) => {
 //     // const params = useSearchParams();
@@ -34,20 +33,13 @@ import { postData } from '@/utils/request';
 //     };
 // }
 
-export default function VisaShopDetailPage() {
-    // export default function VisaShopDetailPage({ params }: { params: { code: string } }) {
-    // console.log(params,'params-VisaShopDetailPage')
-    // const shopInfo = await fetchShopInfo(params.code);
-    // console.log(shopInfo,'shopInfo')
-    //  if (!shopInfo) {
-    //     notFound();
-    // }
+// export default  function VisaShopDetailPage({ params }: { params: { code: string } }) {
+//     console.log(params,'params')
+//     const shopInfo = await fetchShopInfo(params.code);
+//     console.log(shopInfo,'shopInfo')
+//     if (!shopInfo) {
+//         notFound();
+//     }
 
-    const params = useSearchParams();
-    console.log(params, 'params', params.getAll('id'));
-
-    const _id = params.getAll('id')[0] || 0;
-
-    return <Content id={_id} />;
-    // return <Content shopInfo={shopInfo} />;
-}
+//     return <Content shopInfo={shopInfo} />;
+// }

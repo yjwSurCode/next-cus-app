@@ -29,7 +29,7 @@ function App() {
                     {countries.map((item: any, index: number) => (
                         <div key={index}>
                             <h3>{item.state}</h3>
-                            {item.countries.map((country, index) => (
+                            {item.countries.map((country: any, index: number) => (
                                 <p key={index} onClick={() => setCountry(country)}>
                                     {country}
                                 </p>

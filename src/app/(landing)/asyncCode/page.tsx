@@ -1,9 +1,9 @@
 import { notFound } from 'next/navigation';
-import useSWR, { SWRConfig } from 'swr';
+import useSWR from 'swr';
 
 const fetchAsyncCodePage = async (code: string) => {
     // 启动服务才会更新
-    console.log('render...');
+    console.log('render...', code);
     try {
         //! revalidate 10  每隔10秒
         const res = await fetch(
@@ -24,40 +24,7 @@ const fetchAsyncCodePage = async (code: string) => {
     }
 };
 
-const fetcher = (url: string) => fetch(url).then((res) => res.json());
-const API = 'https://api.github.com/repos/vercel/swr';
-
-async function getFetchServerSideProps() {
-    const repoInfo = await fetcher(API);
-    return {
-        props: {
-            fallback: {
-                [API]: repoInfo,
-            },
-        },
-    };
-}
-
-function Repo() {
-    const { data, error } = useSWR(API);
-
-    // there should be no `undefined` state
-    console.log('Is data ready?', !!data);
-
-    if (error) return 'An error has occurred.';
-    if (!data) return 'Loading...';
-    return (
-        <div>
-            <h1>{data.name}</h1>
-            <p>{data.description}</p>
-            <strong>👀 {data.subscribers_count}</strong> <strong>✨ {data.stargazers_count}</strong>{' '}
-            <strong>🍴 {data.forks_count}</strong>
-        </div>
-    );
-}
-
 export default async function AsyncCodePage({ params }: { params: { fallback: any; code: string } }) {
-    const fallback = await getFetchServerSideProps();
     // const result = await fetchAsyncCodePage(params.code);
     const result = await fetchAsyncCodePage(params.code);
     if (!result) {
@@ -66,9 +33,6 @@ export default async function AsyncCodePage({ params }: { params: { fallback: an
 
     return (
         <div>
-            <SWRConfig value={{ fallback: fallback }}>
-                <Repo />
-            </SWRConfig>
             {result.data?.map((item: any) => {
                 return (
                     <div key={item.name}>

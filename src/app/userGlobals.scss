@@ -1,0 +1,10 @@
+$primary-color: #0070f3;
+$primary-color-red: red;
+
+
+@media screen and (max-width: 500px) {
+
+  .titleStyles {
+    background-color: $primary-color-red;
+  }
+}

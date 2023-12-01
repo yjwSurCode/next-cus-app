@@ -1,0 +1,64 @@
+@import '../userGlobals.scss';
+
+:export {
+  primaryColor: $primary-color;
+}
+
+// :root {
+//   --foreground-rgb: 0, 0, 0;
+//   --background-start-rgb: 214, 219, 220;
+//   --background-end-rgb: 255, 255, 255;
+//   --primary-color:'#007bff'
+// }
+
+// @media (prefers-color-scheme: dark) {
+//   :root {
+//     --foreground-rgb: 255, 255, 255;
+//     --background-start-rgb: 0, 0, 0;
+//     --background-end-rgb: 0, 0, 0;
+//     --primary-color:'red'
+//   }
+// }
+
+.CarouselStyle {
+  height: 160px;
+  color: #fff;
+  line-height: 160px;
+  text-align: center;
+  background: #364d79;
+}
+
+.titleStyle {
+  // color: var(--primary-color);
+  color: $primary-color;
+}
+
+
+.App {
+  position: relative;
+  width: 200px;
+}
+
+.dropdown {
+  position: absolute;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  z-index: 1;
+}
+
+.dropdown h3 {
+  margin-top: 0;
+}
+
+.dropdown p {
+  margin: 0;
+  cursor: pointer;
+}
+
+.dropdown p:hover {
+  background-color: #f0f0f0;
+}

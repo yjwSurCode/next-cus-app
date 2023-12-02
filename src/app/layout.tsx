@@ -22,7 +22,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     {/* <ReduxProvider> */}
                     {/* <SessionProvider session={session}> */}
                     <main className="py-24 px-2">
-                        main layout
                         <div className="container m-auto">{children}</div>
                     </main>
                     {/* </SessionProvider> */}

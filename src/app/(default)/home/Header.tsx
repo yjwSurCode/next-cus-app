@@ -5,13 +5,14 @@ import { Dialog } from '@headlessui/react';
 import Link from 'next/link';
 import { Button } from 'antd';
 import { MenuUnfoldOutlined } from '@ant-design/icons';
-import { Image } from '@nextui-org/react';
+// import { Image } from '@nextui-org/react';
+import Image from 'next/image';
 
 // import LogoSvg from '../../../../public/svg/logo.svg'
 import LogoSvg from '/public/svg/logo.svg';
 
 const navigation = [
-  { name: '首页', href: '/#features' },
+  { name: '首页', href: '/visa' },
   { name: '签证办理', href: '/#faq' },
   { name: '签证知识', href: '/github', target: '_blank' as const },
   { name: '签证API', href: '/github', target: '_blank' as const },
@@ -34,7 +35,8 @@ export function Header() {
                 style={{ opacity: 1 }}
                 width={40}
                 alt="NextUI hero Image"
-                src="https://nextui-docs-v2.vercel.app/images/hero-card-complete.jpeg"
+                // src="https://nextui-docs-v2.vercel.app/images/hero-card-complete.jpeg"
+                src={LogoSvg}
               ></Image>
             </h1>
           </Link>

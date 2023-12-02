@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 'use client';
 import useSWR from 'swr';
 import useSWRImmutable from 'swr/immutable';
@@ -5,13 +6,15 @@ import { unstable_serialize } from 'swr'; // ✅ Available in server components
 import { unstable_serialize as infinite_unstable_serialize } from 'swr/infinite'; // ✅ Available in server components
 import { useEffect, useState } from 'react';
 import { Carousel, Col, Row, Statistic } from 'antd';
-import { Input } from '@nextui-org/react';
+import { Card, CardHeader, CardBody, CardFooter, Input, Divider, Image } from '@nextui-org/react';
 import { Header } from '@/app/(default)/home/Header';
 import Link from 'next/link';
 import { postData } from '@/utils/request';
 import Content from '@/app/visa/content';
 // import { useDispatch } from 'react-redux';
 // import CountUp from 'react-countup';
+
+import swiImg from '/public/images/qianzheng.png';
 
 import styles from './visa-page.module.scss';
 
@@ -78,37 +81,39 @@ export default function Dashboard() {
 
     function SearchBox() {
         return (
-            <div className="w-[340px] h-[240px] px-8 rounded-2xl flex justify-center items-center bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg">
-                <Input
-                    label="Search"
-                    isClearable
-                    radius="lg"
-                    classNames={{
-                        label: 'text-black/50 dark:text-white/90',
-                        input: [
-                            'bg-transparent',
-                            'text-black/90 dark:text-white/90',
-                            'placeholder:text-default-700/50 dark:placeholder:text-white/60',
-                        ],
-                        innerWrapper: 'bg-transparent',
-                        inputWrapper: [
-                            'shadow-xl',
-                            'bg-default-200/50',
-                            'dark:bg-default/60',
-                            'backdrop-blur-xl',
-                            'backdrop-saturate-200',
-                            'hover:bg-default-200/70',
-                            'dark:hover:bg-default/70',
-                            'group-data-[focused=true]:bg-default-200/50',
-                            'dark:group-data-[focused=true]:bg-default/60',
-                            '!cursor-text',
-                        ],
-                    }}
-                    placeholder="Type to search..."
-                    startContent={
-                        <SearchIcon className="text-black/50 mb-0.5 dark:text-white/90 text-slate-400 pointer-events-none flex-shrink-0" />
-                    }
-                />
+            <div className="min-h-screen bg-gray-100 flex justify-center items-center">
+                <div className="container mx-auto bg-indigo-500 rounded-lg p-14">
+                    <form>
+                        <h1 className="text-center font-bold text-white text-4xl">搜索办签国家地区</h1>
+                        <p className="mx-auto font-normal text-sm my-6 max-w-lg">
+                            Enter your select domain name and choose any extension name in the next step (choose between
+                            .com, .online, .tech, .site, .net, and more)
+                        </p>
+                        <div className="sm:flex items-center bg-white rounded-lg overflow-hidden px-2 py-1 justify-between">
+                            <input
+                                className="text-base text-gray-400 flex-grow outline-none px-2 "
+                                type="text"
+                                placeholder="Search your domain name"
+                            />
+                            <div className="ms:flex items-center px-2 rounded-lg space-x-4 mx-auto ">
+                                {/* <select
+                                    id="Com"
+                                    className="text-base text-gray-800 outline-none border-2 px-4 py-2 rounded-lg"
+                                >
+                                    <option value="com" selected>
+                                        com
+                                    </option>
+                                    <option value="net">net</option>
+                                    <option value="org">org</option>
+                                    <option value="io">io</option>
+                                </select> */}
+                                <button className="bg-indigo-500 text-white text-base rounded-lg px-4 py-2 font-thin">
+                                    Search
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         );
     }
@@ -139,18 +144,62 @@ export default function Dashboard() {
         return (
             <Carousel autoplay>
                 <div>
-                    <h3 className={styles.CarouselStyle}></h3>
+                    <h3 className={styles.CarouselStyle}>
+                        <Image
+                            style={{ opacity: 1 }}
+                            alt="NextUI hero Image"
+                            src={'https://o.666visa.cn/static/ssqpeer/homepage/homepage-1.png'}
+                        ></Image>
+                    </h3>
                 </div>
                 <div>
-                    <h3 className={styles.CarouselStyle}>2</h3>
+                   <Image
+                            style={{ opacity: 1 }}
+                            alt="NextUI hero Image"
+                            src={'https://o.666visa.cn/static/ssqpeer/homepage/homepage-1.png'}
+                        ></Image>
                 </div>
                 <div>
-                    <h3 className={styles.CarouselStyle}>3</h3>
+                    <Image
+                            style={{ opacity: 1 }}
+                            alt="NextUI hero Image"
+                            src={'https://o.666visa.cn/static/ssqpeer/homepage/homepage-1.png'}
+                        ></Image>
                 </div>
                 <div>
-                    <h3 className={styles.CarouselStyle}>1</h3>
+                    <Image
+                            style={{ opacity: 1 }}
+                            alt="NextUI hero Image"
+                            src={'https://o.666visa.cn/static/ssqpeer/homepage/homepage-1.png'}
+                        ></Image>
                 </div>
             </Carousel>
+        );
+    }
+
+    function RenderCard() {
+        return (
+            <Card className="max-w-[400px]">
+                <CardHeader className="flex gap-3">
+                    <Image
+                        alt="nextui logo"
+                        height={40}
+                        radius="sm"
+                        src="https://avatars.githubusercontent.com/u/86160567?s=200&v=4"
+                        width={40}
+                    />
+                    <div className="flex flex-col">
+                        <p className="text-md">NextUI</p>
+                        <p className="text-small text-default-500">nextui.org</p>
+                    </div>
+                </CardHeader>
+                <Divider />
+                <CardBody>
+                    <p>Make beautiful websites regardless of your design experience.</p>
+                </CardBody>
+                <Divider />
+                <CardFooter>{/* <Link>Visit source code on GitHub.</Link> */}</CardFooter>
+            </Card>
         );
     }
 
@@ -170,27 +219,28 @@ export default function Dashboard() {
     return (
         <ul>
             <Header />
-            <Im />
+            {/* <Im /> */}
             {RenderCarousel()}
             {SearchBox()}
-            <Content></Content>
+
             {/* {RenderStatistic(1234)} */}
-            <div className={styles.titleStyle}>mail title</div>
             {list?.data.map((item, index) => {
                 return (
                     <div key={index}>
-                        <div>
                             <Link
                                 href={{
                                     pathname: `/visa/visa-shop-detail`,
-                                    query: { id: `${item.visa_type_id}` },
+                                    query: { id: `${item.product_id}` },
                                 }}
                             >
+                                <Content shopInfo={item}></Content>
+                                {/* <div>
+                                    {item.product_name}
+                                    {item.product_id}
+                                </div> */}
                                 {/* <div onClick={() => dispatch(addToCart([{ id: 123 }]))}  > {item.product_name}</div> */}
-                                <div> {item.product_name}</div>
                             </Link>
                         </div>
-                    </div>
                 );
             })}
         </ul>
